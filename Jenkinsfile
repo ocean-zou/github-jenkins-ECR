@@ -1,18 +1,18 @@
 pipeline {
     agent any
     environment {
-        AWS_ACCOUNT_ID = "your account id"
-        AWS_DEFAULT_REGION = "your region"
+        AWS_ACCOUNT_ID = "431159034216"
+        AWS_DEFAULT_REGION = "us-east-1"
         IMAGE_REPO_NAME = "laravel"
         IMAGE_TAG = "latest"
-        REPOSITORY_URI = "your repository url"
+        REPOSITORY_URI = "431159034216.dkr.ecr.us-east-1.amazonaws.com/laravel"
     }
    
     stages {
         
         stage('Cloning Git') {
             steps {
-                checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[credentialsId: '', url: 'your git url']]])     
+                checkout([$class: 'GitSCM', branches: [[name: '*/main']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[credentialsId: '', url: 'https://github.com/ocean-zou/github-jenkins-ECR.git']]])     
             }
         }
 
